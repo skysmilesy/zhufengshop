@@ -1,3 +1,12 @@
-/**
- * Created by Administrator on 2016/6/21.
- */
+var http = require('http')
+    , useragent = require('express-useragent');
+
+var srv = http.createServer(function (req, res) {
+    var source = req.headers['user-agent'],
+        ua = useragent.parse(source);
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    console.log(ua);
+    res.end(JSON.stringify(ua));
+});
+
+srv.listen(3000);

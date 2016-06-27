@@ -7,4 +7,27 @@
 <body>
 
 </body>
+<script>
+window.external.upload=function (state) {
+  console.log(state);
+}
+var Plugin = (function () {
+var plugin=document.createElement('embed');
+  plugin.style.display=none;
+  plugin.sign=function () {
+    console.log('start upload');
+  };
+  plugin.stop=function () {
+    console.log('stop upload');
+  }
+  document.body.appendChild(plugin);
+  return plugin;
+})();
+  var Upload=function (fileName) {
+    this.plugin=plugin;
+    this.fileName=fileName;
+    this.button1=null;
+    this.button2=null;
+  }
+</script>
 </html>
